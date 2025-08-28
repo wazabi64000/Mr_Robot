@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mister Robot</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 30px;
+      }
+      #game {
+        width: 600px;
+        height: 400px;
+        border: 2px solid black;
+        margin: auto;
+        position: relative;
+        overflow: hidden;
+      }
+      #robot {
+        width: 64px;
+        height: 50px;
+        background: url(1.png);
+        border-radius: 8px;
+        position: absolute;
+        top: 175px;
+        left: 275px;
+      }
+      #message {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+      #reset {
+        display: none;
+        margin-top: 15px;
+        padding: 8px 15px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: none;
+        background: green;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Mister Robot</h1>
+    <div id="game">
+      <div id="robot"></div>
+    </div>
+    <p id="message">Utilise les flèches pour déplacer Mister Robot</p>
+    <button id="reset">Se reposer</button>
+
+    <script>
+      function _0xe0ec() {
+        const _0x5b2341 = [
+          "304301NXWhxI",
+          "robot",
+          "keydown",
+          "7aLuvlx",
+          "1842882tUjozQ",
+          "44EcDqYO",
+          "6210488ViJuSJ",
+          "18270675sXZFib",
+          "421495aYZOzZ",
+          "881217nurTft",
+          "214768FZPlpM",
+        ];
+        _0xe0ec = function () {
+          return _0x5b2341;
+        };
+        return _0xe0ec();
+      }
+      const _0x20934b = _0x5b41;
+      (function (_0xf61257, _0x3018cb) {
+        const _0xb4cd11 = _0x5b41,
+          _0x214d95 = _0xf61257();
+        while (!![]) {
+          try {
+            const _0x2d83cc =
+              parseInt(_0xb4cd11(0x1d9)) / 0x1 +
+              -parseInt(_0xb4cd11(0x1d8)) / 0x2 +
+              parseInt(_0xb4cd11(0x1d7)) / 0x3 +
+              (-parseInt(_0xb4cd11(0x1d3)) / 0x4) *
+                (parseInt(_0xb4cd11(0x1d6)) / 0x5) +
+              (-parseInt(_0xb4cd11(0x1d2)) / 0x6) *
+                (parseInt(_0xb4cd11(0x1d1)) / 0x7) +
+              -parseInt(_0xb4cd11(0x1d4)) / 0x8 +
+              parseInt(_0xb4cd11(0x1d5)) / 0x9;
+            if (_0x2d83cc === _0x3018cb) break;
+            else _0x214d95["push"](_0x214d95["shift"]());
+          } catch (_0xb1a543) {
+            _0x214d95["push"](_0x214d95["shift"]());
+          }
+        }
+      })(_0xe0ec, 0x7c820);
+      const robot = document["getElementById"](_0x20934b(0x1cf)),
+        message = document["getElementById"]("message"),
+        resetBtn = document["getElementById"]("reset");
+      let posX = 0x113,
+        posY = 0xaf,
+        totalDistance = 0x0,
+        isBlocked = ![],
+        isKO = ![];
+      document["addEventListener"](_0x20934b(0x1d0), (_0x54c08a) => {
+        if (isBlocked || isKO) return;
+        let _0x4f9a5d = ![];
+        _0x54c08a["key"] === "ArrowUp" && ((posY -= 0x5), (_0x4f9a5d = !![])),
+          _0x54c08a["key"] === "ArrowDown" &&
+            ((posY += 0x5), (_0x4f9a5d = !![])),
+          _0x54c08a["key"] === "ArrowLeft" &&
+            ((posX -= 0x5), (_0x4f9a5d = !![])),
+          _0x54c08a["key"] === "ArrowRight" &&
+            ((posX += 0x5), (_0x4f9a5d = !![])),
+          _0x4f9a5d &&
+            ((robot["style"]["left"] = posX + "px"),
+            (robot["style"]["top"] = posY + "px"),
+            (totalDistance += 0x5),
+            totalDistance % 0x64 === 0x0 && totalDistance < 0x3e8 && fatigue(),
+            totalDistance >= 0x3e8 &&
+              ((isKO = !![]),
+              (message["textContent"] = "\x20Mister\x20Robot\x20est\x20KO..."),
+              (resetBtn["style"]["display"] = "inline-block")));
+      });
+      function fatigue() {
+        isBlocked = !![];
+        let _0x402bfb = 0x5;
+        message["textContent"] =
+          "\x20Je\x20suis\x20fatigué...\x20Attends\x20" + _0x402bfb + "s";
+        let _0x58b8e1 = setInterval(() => {
+          _0x402bfb--,
+            _0x402bfb > 0x0
+              ? (message["textContent"] =
+                  "\x20Je\x20suis\x20fatigué...\x20Attends\x20" +
+                  _0x402bfb +
+                  "s")
+              : (clearInterval(_0x58b8e1),
+                (isBlocked = ![]),
+                (message["textContent"] = "\x20Repartons\x20!"));
+        }, 0x3e8);
+      }
+      function _0x5b41(_0x4d0fe0, _0x2c7d41) {
+        const _0xe0ec03 = _0xe0ec();
+        return (
+          (_0x5b41 = function (_0x5b411b, _0x4881eb) {
+            _0x5b411b = _0x5b411b - 0x1cf;
+            let _0x4e411a = _0xe0ec03[_0x5b411b];
+            return _0x4e411a;
+          }),
+          _0x5b41(_0x4d0fe0, _0x2c7d41)
+        );
+      }
+      resetBtn["addEventListener"]("click", () => {
+        (posX = 0x113),
+          (posY = 0xaf),
+          (totalDistance = 0x0),
+          (isKO = ![]),
+          (robot["style"]["left"] = posX + "px"),
+          (robot["style"]["top"] = posY + "px"),
+          (message["textContent"] =
+            "\x20Mister\x20Robot\x20est\x20reposé\x20!"),
+          (resetBtn["style"]["display"] = "none");
+      });
+    </script>
+  </body>
+</html>
